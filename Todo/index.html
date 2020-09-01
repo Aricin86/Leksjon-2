@@ -1,37 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Todo</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <meta name="author" content="Åse U. Rørmark" />
+        <meta name="description" content="Lecture 2: Assignment 1-4. Make a website with a todo app." />
+
+        <title>Leksjon 2 - Todo</title>
+
+        <script src="https://kit.fontawesome.com/3dd4205412.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+        <link rel="stylesheet" media="screen" href="css/style.css">
     </head>
     <body>
-        <header>
+        <header id="navigation-header">
             <nav>
-                <a href="#">HIOF</a>
-                <a href="#">User user</a>
+                <p id="sorta-kinda-logo">HIOF</p>
+                <p id="user-name">User user</p>
             </nav>
         </header>
         <main>
-            <section>
-                <button><span>+</span> Todo</button>
+            <section id="add-section">
+                <button id="btn-add-todo"><i class="fas fa-plus"></i> Todo</button>
             </section>
-            <section>
-                <article id="todocard1" class="todocard">
+            <section id="card-section">
+                <article id="todo-card-1" class="todo-card">
                     <h3>Todotitle</h3>
                     <p>I'm baby sriracha hot chicken mixtape pabst organic air ...</p>
-                    <button type="button" class="btn_delete">Delete</button><button type="button" class="btn_complete">Complete</button>
+                    <button type="button" class="btn-delete">Delete</button><button type="button" class="btn-complete">Complete</button>
                 </article>
-                <article id="todocard2" class="todocard">
+                <article id="todo-card-2" class="todo-card">
                     <h3>Todotitle</h3>
                     <p>I'm baby sriracha hot chicken mixtape pabst organic air ...</p>
-                    <button type="button" class="btn_delete">Delete</button><button type="button" class="btn_complete">Complete</button>
+                    <button type="button" class="btn-delete">Delete</button><button type="button" class="btn-complete">Complete</button>
                 </article>
-                <article id="todocard3" class="todocard">
+                <article id="todo-card-3" class="todo-card">
                     <h3>Todotitle</h3>
                     <p>I'm baby sriracha hot chicken mixtape pabst organic air ...</p>
-                    <button type="button" class="btn_delete">Delete</button><button type="button" class="btn_complete">Complete</button>
+                    <button type="button" class="btn-delete">Delete</button><button type="button" class="btn-complete">Complete</button>
                 </article>
             </section>
-            <section></section>
+            <section id="table-section">
+                <h3>Completed todos</h3>
+                <div id="filter-checkbox">
+                    <input type="checkbox" id="filter-by-date" name="filterbydate" value="Filter">
+                    <label for="filterbydate">Filter by date</label>
+                </div>
+                <table id="todo-table">
+                    <tr id="tbl-header">
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Description</th>
+                        <th>Completed date</th>
+                    </tr>
+                    <tr id="tbl-row1" class="tbl-row">
+                        <td>Todotitle</td>
+                        <td>Author Author</td>
+                        <td>I'm baby sriracha hot chicken ...</td>
+                        <td>22.12.20</td>
+                    </tr>
+                    <tr id="tbl-row2" class="tbl-row">
+                        <td>Todotitle</td>
+                        <td>Author Author</td>
+                        <td>I'm baby sriracha hot chicken ...</td>
+                        <td>22.11.20</td>
+                    </tr>
+                    <tr id="tbl-row3" class="tbl-row">
+                        <td>Todotitle</td>
+                        <td>Author Author</td>
+                        <td>I'm baby sriracha hot chicken ...</td>
+                        <td>22.10.20</td>
+                    </tr>
+                </table>
+            </section>
         </main>
     </body>
 </html>

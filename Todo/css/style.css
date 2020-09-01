@@ -1,0 +1,212 @@
+/*************/
+/** GENERAL **/
+/*************/
+html {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif; 
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 220px auto 220px;
+    grid-template-rows: 63px auto;
+}
+
+/************/
+/** HEADER **/
+/************/
+#navigation-header {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+}
+
+nav {
+    padding: 0 30px;
+    box-shadow: 0px 6px 10px #00000019;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+#sorta-kinda-logo {
+    font-weight: 900;
+    font-size: 20px;
+    color: #333;
+}
+
+#user-name {
+    justify-self: end;
+    font-weight: 500;
+    font-size: 20px;
+    color: #333;
+}
+
+/**********/
+/** MAIN **/
+/**********/
+main {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-rows: repeat(auto, 3);
+}
+
+#add-section {
+    margin: 77px 0 0 0;
+    grid-row: 1 / 2;
+}
+
+#card-section {
+    margin: 70px 0 0 0;
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: repeat(1fr, 3);
+    column-gap: 40px;
+}
+
+#table-section {
+    margin: 70px 0 0 0;
+    grid-row: 3 / 4;
+}
+
+#btn-add-todo {
+    width: 183px;
+    height: 51px;
+    font-weight: 500;
+    font-size: 23px;
+    color: #2D2F39;
+    border: 1px solid #333;
+    border-radius: 0;
+    background-color: #FFF;
+}
+
+#btn-add-todo:hover {
+    border: 1px solid #333;
+    border-radius: 0;
+    background-color: #56D4C2;
+}
+
+
+/** CARDS **/
+#todo-card-1 {
+    grid-column: 1 / 2;
+}
+
+#todo-card-2 {
+    grid-column: 2 / 3;
+}
+
+#todo-card-3 {
+    grid-column: 3 / 4;
+}
+
+.todo-card {
+    padding: 27px 22px 24px 30px;
+    box-shadow: 0px 8px 16px #5DD3D829;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: repeat(auto, 3);
+    column-gap: 4px;
+}
+
+.todo-card h3 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 16px;
+    color: #333;
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+}
+
+.todo-card p {
+    margin: 5px 0 22px 0;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333;
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+}
+
+.todo-card button {
+    font-weight: 700;
+    font-size: 11px;
+    color: #FFF;
+    width: 77px;
+    height: 23px;
+    border-radius: 5px;
+    border: none;
+    grid-row: 3 / 4;
+    justify-self: end;
+}
+
+.btn-delete {
+    background-color: #EF3340;
+    grid-column: 1 / 2;
+}
+
+.btn-complete {
+    background-color: #56D4C2;
+    grid-column: 2 / 3s;
+}
+
+
+/** TABLE **/
+#table-section {
+    display: grid;
+    grid-template-rows: repeat(auto, 3);
+}
+
+#table-section h3 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 16px;
+    color: #333;
+    grid-row: 1 / 2;
+}
+
+#filter-checkbox {
+    margin: 5px 35px 13px 0;
+    grid-row: 2 / 3;
+    justify-self: right;
+}
+
+#table-section label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #909090;
+}
+
+#todo-table {
+    border-collapse: collapse;
+    grid-row: 3 / 4;
+}
+
+#tbl-header {
+    font-weight: 500;
+    font-size: 14px;
+    color: #363636;
+}
+
+#tbl-header th {
+    padding: 6px 0 6px 35px;
+    text-align: left;
+    background-color: #E6E6E6;
+}
+
+.tbl-row {
+    font-weight: 400;
+    font-size: 14px;
+    color: #8B8B8B;
+}
+
+.tbl-row td {
+    padding: 13px 0 13px 35px;
+    border-bottom: 2px solid rgb(129, 142, 148, 0.1);
+}
