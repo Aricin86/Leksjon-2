@@ -10,8 +10,10 @@
 
         <title>Leksjon 2 - Todo</title>
 
+        <!-- Free fonts because I don't take time to make my own -->
         <script src="https://kit.fontawesome.com/3dd4205412.js" crossorigin="anonymous"></script>
 
+        <!-- The font used in the design sketch cost money, so I changed it to this free font instead -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
         <link rel="stylesheet" media="screen" href="css/style.css">
     </head>
@@ -26,29 +28,34 @@
             <section id="add-section">
                 <button id="btn-add-todo"><i class="fas fa-plus"></i> Todo</button>
             </section>
+
             <section id="card-section">
                 <article id="todo-card-1" class="todo-card">
                     <h3>Todotitle</h3>
                     <p>I'm baby sriracha hot chicken mixtape pabst organic air ...</p>
-                    <button type="button" class="btn-delete">Delete</button><button type="button" class="btn-complete">Complete</button>
+                    <button type="button" class="btn-delete">Delete</button>
+                    <button type="button" class="btn-complete">Complete</button>
                 </article>
                 <article id="todo-card-2" class="todo-card">
                     <h3>Todotitle</h3>
                     <p>I'm baby sriracha hot chicken mixtape pabst organic air ...</p>
-                    <button type="button" class="btn-delete">Delete</button><button type="button" class="btn-complete">Complete</button>
+                    <button type="button" class="btn-delete">Delete</button>
+                    <button type="button" class="btn-complete">Complete</button>
                 </article>
                 <article id="todo-card-3" class="todo-card">
                     <h3>Todotitle</h3>
                     <p>I'm baby sriracha hot chicken mixtape pabst organic air ...</p>
-                    <button type="button" class="btn-delete">Delete</button><button type="button" class="btn-complete">Complete</button>
+                    <button type="button" class="btn-delete">Delete</button>
+                    <button type="button" class="btn-complete">Complete</button>
                 </article>
             </section>
+
             <section id="table-section">
                 <h3>Completed todos</h3>
-                <div id="filter-checkbox">
-                    <input type="checkbox" id="filter-by-date" name="filterbydate" value="Filter">
-                    <label for="filterbydate">Filter by date</label>
-                </div>
+                <label class="filter-checkbox">Filter by date
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
                 <table id="todo-table">
                     <tr id="tbl-header">
                         <th>Title</th>

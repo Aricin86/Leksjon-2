@@ -1,21 +1,30 @@
 /*************/
 /** GENERAL **/
 /*************/
-html {
+* {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif; 
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
 }
 
 body {
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: 220px auto 220px;
+    grid-template-columns: 1fr 4.2fr 1fr;
     grid-template-rows: 63px auto;
+}
+
+section,
+article {
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 16px;
+    color: #333;
 }
 
 /************/
@@ -65,9 +74,7 @@ main {
 #card-section {
     margin: 70px 0 0 0;
     grid-row: 2 / 3;
-    display: grid;
-    grid-template-columns: repeat(1fr, 3);
-    column-gap: 40px;
+    display: flex;
 }
 
 #table-section {
@@ -86,6 +93,10 @@ main {
     background-color: #FFF;
 }
 
+#btn-add-todo i {
+    color: #1F1F1F;
+}
+
 #btn-add-todo:hover {
     border: 1px solid #333;
     border-radius: 0;
@@ -94,16 +105,8 @@ main {
 
 
 /** CARDS **/
-#todo-card-1 {
-    grid-column: 1 / 2;
-}
-
-#todo-card-2 {
-    grid-column: 2 / 3;
-}
-
-#todo-card-3 {
-    grid-column: 3 / 4;
+.todo-card + .todo-card {
+    margin-left: 40px;
 }
 
 .todo-card {
@@ -117,10 +120,6 @@ main {
 }
 
 .todo-card h3 {
-    margin: 0;
-    font-weight: 700;
-    font-size: 16px;
-    color: #333;
     grid-column: 1 / 3;
     grid-row: 1 / 2;
 }
@@ -151,9 +150,17 @@ main {
     grid-column: 1 / 2;
 }
 
+.btn-delete:hover {
+    opacity: 0.7;
+}
+
 .btn-complete {
     background-color: #56D4C2;
     grid-column: 2 / 3s;
+}
+
+.btn-complete:hover {
+    opacity: 0.7;
 }
 
 
@@ -164,24 +171,80 @@ main {
 }
 
 #table-section h3 {
-    margin: 0;
-    font-weight: 700;
-    font-size: 16px;
-    color: #333;
     grid-row: 1 / 2;
 }
 
-#filter-checkbox {
-    margin: 5px 35px 13px 0;
+/* Checkmark */
+.filter-checkbox {
+    margin: 5px 80px 13px 0;
     grid-row: 2 / 3;
     justify-self: right;
-}
 
-#table-section label {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
     font-weight: 500;
     font-size: 14px;
     color: #909090;
 }
+
+/* Hide the browser's default checkbox - Code from w3schools.com */
+.filter-checkbox input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+  
+/* Create a custom checkbox - Code from w3schools.com, but with some changes */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    border: 2px solid #000;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) - Code from w3schools.com */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked - Code from w3schools.com */
+.filter-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.filter-checkbox input:checked ~ .checkmark {
+    border: 2px solid #56D4C2;
+}
+  
+/* Style the checkmark/indicator - Code from w3schools.com */
+.filter-checkbox .checkmark:after {
+    left: 5px;
+    top: -5px;
+    width: 5px;
+    height: 12px;
+    border: solid #56D4C2;
+    border-width: 0 2px 2px 0;
+    box-shadow: 
+        inset 0 4px 0 0 #FFF, 
+        2px 0 1px 0 #FFF;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+/* End Checkmark */
 
 #todo-table {
     border-collapse: collapse;
