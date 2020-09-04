@@ -15,6 +15,7 @@
 
         <!-- The font used in the design sketch cost money, so I changed it to this free font instead -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" media="screen" href="css/style.css">
     </head>
     <body>
@@ -26,34 +27,34 @@
         </header>
         <main>
             <section id="add-section">
-                <button id="btn-add-todo"><i class="fas fa-plus"></i> Todo</button>
+                <button id="btn-add-todo" onclick="openAddTodoPopup()"><i class="fas fa-plus"></i> Todo</button>
             </section>
 
             <section id="card-section">
                 <article id="todo-card-1" class="todo-card">
-                    <h3>Todotitle</h3>
-                    <p>I'm baby sriracha hot chicken mixtape pabst organic air ...</p>
-                    <button type="button" class="btn-delete">Delete</button>
-                    <button type="button" class="btn-complete">Complete</button>
+                    <h3 id="titleCard1"></h3>
+                    <p id="descCard1"></p>
+                    <button type="button" id="btnDeleteCardOne" class="btn-delete" onclick="deleteCardOne()">Delete</button>
+                    <button type="button" id="btnCompleteCardOne" class="btn-complete" onclick="completeCardOne()">Complete</button>
                 </article>
                 <article id="todo-card-2" class="todo-card">
-                    <h3>Todotitle</h3>
-                    <p>I'm baby sriracha hot chicken mixtape pabst organic air ...</p>
-                    <button type="button" class="btn-delete">Delete</button>
-                    <button type="button" class="btn-complete">Complete</button>
+                    <h3 id="titleCard2"></h3>
+                    <p id="descCard2"></p>
+                    <button type="button" id="btnDeleteCardTwo" class="btn-delete" onclick="deleteCardTwo()">Delete</button>
+                    <button type="button" id="btnCompleteCardTwo" class="btn-complete" onclick="completeCardTwo()">Complete</button>
                 </article>
                 <article id="todo-card-3" class="todo-card">
-                    <h3>Todotitle</h3>
-                    <p>I'm baby sriracha hot chicken mixtape pabst organic air ...</p>
-                    <button type="button" class="btn-delete">Delete</button>
-                    <button type="button" class="btn-complete">Complete</button>
+                    <h3 id="titleCard3"></h3>
+                    <p id="descCard3"></p>
+                    <button type="button" id="btnDeleteCardThree" class="btn-delete" onclick="deleteCardThree()">Delete</button>
+                    <button type="button" id="btnComleteCardThree" class="btn-complete" onclick="completeCardThree()">Complete</button>
                 </article>
             </section>
 
             <section id="table-section">
                 <h3>Completed todos</h3>
-                <label class="filter-checkbox">Filter by date
-                    <input type="checkbox">
+                <label class="filter-checkbox">Sort by date (ascending)
+                    <input type="checkbox" id="sortByAscending" onchange="fillCompletedTodoTable()">
                     <span class="checkmark"></span>
                 </label>
                 <table id="todo-table">
@@ -63,26 +64,52 @@
                         <th>Description</th>
                         <th>Completed date</th>
                     </tr>
-                    <tr id="tbl-row1" class="tbl-row">
-                        <td>Todotitle</td>
-                        <td>Author Author</td>
-                        <td>I'm baby sriracha hot chicken ...</td>
-                        <td>22.12.20</td>
+                    <tr class="tbl-row">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
-                    <tr id="tbl-row2" class="tbl-row">
-                        <td>Todotitle</td>
-                        <td>Author Author</td>
-                        <td>I'm baby sriracha hot chicken ...</td>
-                        <td>22.11.20</td>
+                    <tr class="tbl-row">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
-                    <tr id="tbl-row3" class="tbl-row">
-                        <td>Todotitle</td>
-                        <td>Author Author</td>
-                        <td>I'm baby sriracha hot chicken ...</td>
-                        <td>22.10.20</td>
+                    <tr class="tbl-row">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </table>
             </section>
+
+            <section class="new-todo-popup" id="addNewTodoForm">
+                <header>
+                    <h1>New todo</h1>
+                    <p  onclick="closeAddTodoPopup()"><i class="fas fa-times"></i></p>
+                </header>
+                    
+                <form class="popup-container">
+                    <label>Title</label>
+                    <input type="text" id="inputValueTitle" placeholder="Title of todo">
+
+                    <label>Description 
+                        <span>(<span id="descCharLeft">30</span> characters left)</span>
+                    </label>
+                    <input type="text" id="inputValueDesc" oninput="updateCharLeft()" placeholder="Short description" maxlength="30">
+
+                    <label>Author</label>
+                    <input type="text" id="inputValueAuthor" placeholder="Name of author">
+                    
+                    <button type="button" class="btn-create" onclick="submitNewTodo()">Create</button>
+                </form>
+            </section>
         </main>
+
+        <section id="overlay" onclick="closeAddTodoPopup()"></section>
+
+        <script type="text/javascript" src="js/script.js"></script>
     </body>
 </html>
