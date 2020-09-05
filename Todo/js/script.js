@@ -1,21 +1,22 @@
+/*********************/
+/** START OF SCRIPT **/
+/*********************/
 
 window.onload = startup;
-
 
 let currentTodoID = 0;
 let currentTodos = new Map();
 let completedTodos = new Map();
 
-
 function startup() {
-    // Populating current todos
+    // Populating current todos with some starter data
     let todo1 = { title: "Tittel #1", author: "Jane", description: "Do this and that and then some" };
     let todo2 = { title: "Randomly Generated", author: "Joe", description: "More stuff to do." };
 
     currentTodos.set(todo2, currentTodoID++);
     currentTodos.set(todo1, currentTodoID++);
 
-    // Populating completed todos
+    // Populating completed todos with some starter data
     let completed1 = { title: "Solve Mystery", author: "Scooby-Doo", description: "Gather the gang + green van" };
     let completed2 = { title: "Go Shopping", author: "Olav", description: "Go shop stuffs" };
     
@@ -27,15 +28,14 @@ function startup() {
 }
 
 
+/*********************/
+/** FILL TODO CARDS **/
+/*********************/
 
-/************/
-/** DELETE **/
-/************/
-
-/** Fill Todo Cards **/
 function fillTodoCards() {
 
-    // Courtesy of https://stackoverflow.com/questions/37982476/how-to-sort-a-map-by-value-in-javascript
+    // Sorting function courtesy of answers on this page:
+    // https://stackoverflow.com/questions/37982476/how-to-sort-a-map-by-value-in-javascript
     let sortedTodos = new Map([...currentTodos.entries()].sort((a,b) => b[1] - a[1]));
           
     let emptyTodo = { title: "Empty", author: "", description: "" };
@@ -49,8 +49,8 @@ function fillTodoCards() {
 
     let titleCards = ["titleCard1", "titleCard2", "titleCard3"];
     let descCards = ["descCard1", "descCard2", "descCard3"];
-    let deleteButtons = ["btnDeleteCardOne", "btnDeleteCardTwo", "btnDeleteCardThree"]
-    let completeButtons = ["btnCompleteCardOne", "btnCompleteCardTwo", "btnComleteCardThree"]
+    let deleteButtons = ["btnDeleteCardOne", "btnDeleteCardTwo", "btnDeleteCardThree"];
+    let completeButtons = ["btnCompleteCardOne", "btnCompleteCardTwo", "btnComleteCardThree"];
 
     count = 0;
     for (let key of tempTodos) {
@@ -63,8 +63,10 @@ function fillTodoCards() {
 }
 
 
+/********************************/
+/** FILL COMPLETED TODOS TABLE **/
+/********************************/
 
-/** Fill Completed Todos Table **/
 function fillCompletedTodoTable() {
     let sortedTodos = currentTodos;
 
@@ -78,7 +80,6 @@ function fillCompletedTodoTable() {
         // Sorting descending by completion date
         sortedTodos = new Map([...completedTodos.entries()].sort((a,b) => a[1].localeCompare(b[1])));
     }
-
 
     const theTodoTable = document.getElementById("todo-table");
 
@@ -101,9 +102,9 @@ function fillCompletedTodoTable() {
 }
 
 
-/************/
-/** DELETE **/
-/************/
+/*****************/
+/** DELETE TODO **/
+/*****************/
 
 // Delete Card 1:
 function deleteCardOne() {
@@ -124,10 +125,9 @@ function deleteCardThree() {
 }
 
 
-
-/**************/
+/*************/
 /** GETTERS **/
-/**************/
+/*************/
 
 function getCurrentTodoOne() {
     let sortedTodos = new Map([...currentTodos.entries()].sort((a,b) => b[1] - a[1]));
@@ -145,7 +145,6 @@ function getCurrentTodoTwo() {
         }
         count++;
     } 
-
 }
 
 function getCurrentTodoThree() {
@@ -160,9 +159,9 @@ function getCurrentTodoThree() {
 }
 
 
-/**************/
-/** COMPLETE **/
-/**************/
+/*******************/
+/** COMPLETE TODO **/
+/*******************/
 
 // Complete Card 1:
 function completeCardOne() {
@@ -174,7 +173,6 @@ function completeCardOne() {
         // https://stackoverflow.com/questions/6040515/how-do-i-get-month-and-date-of-javascript-in-2-digit-format
         let currentDate = ("0" + newDate.getDate()).slice(-2) + "." + ("0" + (newDate.getMonth() + 1)).slice(-2) + "." + newDate.getFullYear();
         
-        
         completedTodos.set(tempTodo, currentDate);
 
         deleteCardOne();
@@ -184,13 +182,11 @@ function completeCardOne() {
 
 // Complete Card 2:
 function completeCardTwo() {
-    
     let tempTodo = getCurrentTodoTwo();
 
     if (tempTodo.title.length > 0) {
         let newDate = new Date();
         let currentDate = ("0" + newDate.getDate()).slice(-2) + "." + ("0" + (newDate.getMonth() + 1)).slice(-2) + "." + newDate.getFullYear();
-        
         
         completedTodos.set(tempTodo, currentDate);
 
@@ -207,9 +203,7 @@ function completeCardThree() {
         let newDate = new Date();
         let currentDate = ("0" + newDate.getDate()).slice(-2) + "." + ("0" + (newDate.getMonth() + 1)).slice(-2) + "." + newDate.getFullYear();
         
-        
         completedTodos.set(tempTodo, currentDate);
-
 
         deleteCardThree();
         fillCompletedTodoTable();
@@ -248,12 +242,10 @@ function updateCharLeft() {
 }
 
 
-
 /******************/
 /** ADD NEW TODO **/
 /******************/
 
-/** Adding a New Todo **/
 function submitNewTodo() {
     let newTitle = document.getElementById("inputValueTitle").value;
 
@@ -263,18 +255,13 @@ function submitNewTodo() {
 
         let tempTodo = { title: newTitle, author: newAuthor, description: newDescription };
         currentTodos.set(tempTodo, currentTodoID++);
-        
-        // if (!todo1.title.length > 0) {
-        //     todo1 = { title: newTitle, author: newAuthor, description: newDescription };
-        // }
-        // else if (!todo2.title.length > 0) {
-        //     todo2 = { title: newTitle, author: newAuthor, description: newDescription };
-        // }
-        // else {
-        //     todo3 = { title: newTitle, author: newAuthor, description: newDescription };
-        // }
-        
+
         fillTodoCards();
     }
     closeAddTodoPopup();
 }
+
+
+/*******************/
+/** END OF SCRIPT **/
+/*******************/

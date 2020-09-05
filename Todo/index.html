@@ -16,6 +16,8 @@
         <!-- The font used in the design sketch cost money, so I changed it to this free font instead -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+        <!-- My Style; CSS file link -->
         <link rel="stylesheet" media="screen" href="css/style.css">
     </head>
     <body>
@@ -53,7 +55,8 @@
 
             <section id="table-section">
                 <h3>Completed todos</h3>
-                <label class="filter-checkbox">Sort by date (ascending)
+                <!-- Changed the name to sorting after the assignment got updated -->
+                <label class="sorting-checkbox">Sort by date (ascending)
                     <input type="checkbox" id="sortByAscending" onchange="fillCompletedTodoTable()">
                     <span class="checkmark"></span>
                 </label>
@@ -85,6 +88,7 @@
                 </table>
             </section>
 
+            <!-- Hidden unless Todo-button clicked -->
             <section class="new-todo-popup" id="addNewTodoForm">
                 <header>
                     <h1>New todo</h1>
@@ -110,6 +114,7 @@
 
         <section id="overlay" onclick="closeAddTodoPopup()"></section>
 
+        <!-- Linking to my JavaScript file -->
         <script type="text/javascript" src="js/script.js"></script>
     </body>
 </html>

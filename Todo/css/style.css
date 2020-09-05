@@ -27,6 +27,7 @@ h3 {
     color: #333;
 }
 
+
 /************/
 /** HEADER **/
 /************/
@@ -56,6 +57,7 @@ nav {
     color: #333;
 }
 
+
 /**********/
 /** MAIN **/
 /**********/
@@ -82,6 +84,7 @@ main {
     grid-row: 3 / 4;
 }
 
+/** TODO BUTTON **/
 #btn-add-todo {
     width: 183px;
     height: 51px;
@@ -104,7 +107,9 @@ main {
 }
 
 
+/***********/
 /** CARDS **/
+/***********/
 .todo-card + .todo-card {
     margin-left: 40px;
 }
@@ -119,7 +124,7 @@ main {
     column-gap: 4px;
     align-items: end; /* To keep the buttons at the bottom of the card */
     width: 100%; /* To make the cards the same size */
-    word-wrap: break-word;
+    word-wrap: break-word; /* To prevent the paragraph from going outside the box */
 }
 
 .todo-card h3 {
@@ -145,18 +150,13 @@ main {
     height: 23px;
     border-radius: 5px;
     border: none;
-    outline: none;
+    outline: none; /* So the button does not have a selection-"border" when it is selected */
     grid-row: 3 / 4;
     justify-self: end;
 }
 
 .todo-card button:hover {
     opacity: 0.7;
-}
-
-.todo-card button:active {
-    opacity: 1;
-    transform: translateY(1px);
 }
 
 .btn-delete {
@@ -169,12 +169,20 @@ main {
     grid-column: 2 / 3s;
 }
 
+/* Not part of the assignment, just to make it look better */
+.todo-card button:active {
+    opacity: 1;
+    transform: translateY(1px);
+}
+
 .todo-card button:disabled {
     opacity: 0.3;
 }
 
 
-/** TABLE **/
+/*****************************/
+/** COMPLETED TODOS - TABLE **/
+/*****************************/
 #table-section {
     display: grid;
     grid-template-rows: repeat(auto, 3);
@@ -185,12 +193,18 @@ main {
     grid-row: 1 / 2;
 }
 
-/* Checkmark */
-.filter-checkbox {
+
+/** CHECKMARK **/
+/* Got some of this code from w3schools.com, they are marked in comments. */
+.sorting-checkbox {
     margin: 5px 80px 13px 0;
     grid-row: 2 / 3;
     justify-self: right;
+    font-weight: 500;
+    font-size: 14px;
+    color: #909090;
 
+    /* Code from w3schools.com */
     display: block;
     position: relative;
     padding-left: 20px;
@@ -198,14 +212,10 @@ main {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-
-    font-weight: 500;
-    font-size: 14px;
-    color: #909090;
 }
 
 /* Hide the browser's default checkbox - Code from w3schools.com */
-.filter-checkbox input {
+.sorting-checkbox input {
     position: absolute;
     opacity: 0;
     height: 0;
@@ -232,16 +242,17 @@ main {
 }
 
 /* Show the checkmark when checked - Code from w3schools.com */
-.filter-checkbox input:checked ~ .checkmark:after {
+.sorting-checkbox input:checked ~ .checkmark:after {
     display: block;
 }
 
-.filter-checkbox input:checked ~ .checkmark {
+/* Changed the color of the border when the checkmark is checked. */
+.sorting-checkbox input:checked ~ .checkmark {
     border: 2px solid #56D4C2;
 }
   
 /* Style the checkmark/indicator - Code from w3schools.com */
-.filter-checkbox .checkmark:after {
+.sorting-checkbox .checkmark:after {
     left: 5px;
     top: -5px;
     width: 5px;
@@ -255,8 +266,10 @@ main {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-/* End Checkmark */
+/** CHECKMARK - END **/
 
+
+/** TABLE **/
 #todo-table {
     border-collapse: collapse;
     grid-row: 3 / 4;
@@ -285,15 +298,19 @@ main {
     border-bottom: 2px solid rgb(129, 142, 148, 0.1);
 }
 
+/* Just to help make it look pretty when the window is resized */
 .tbl-row td:nth-child(3) {
     max-width: 210px;
     word-break: break-all;
 }
 
+
 /************************/
 /** ADD NEW TODO POPUP **/
 /************************/
+/* This part is hidden unless the Todo-button is clicked */
 
+/* The Overlay is a box that spans the entire page and blurs the background */
 #overlay {
     visibility: hidden;
     position: fixed;
@@ -306,6 +323,7 @@ main {
     z-index: 10;
 }
 
+/* THE POPUP FORM */
 .new-todo-popup {
     visibility: hidden;
     position: absolute;
@@ -322,6 +340,7 @@ main {
     margin: 0 40px 0 35px;
 }
 
+/* The header part of the "New todo"-form */
 .new-todo-popup header {
     margin: 0 0 28px 0;
     border-bottom: 0.4px solid #CCC;
@@ -347,6 +366,7 @@ main {
     cursor: pointer;
 }
 
+/* The main part of the "New todo"-form */
 .popup-container label {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
@@ -369,6 +389,7 @@ main {
     width: 100%;
 }
 
+/* Create Button */
 .btn-create {
     font-family: 'Lato', sans-serif;
     font-weight: 500;
@@ -384,3 +405,8 @@ main {
 .btn-create:hover {
     opacity: 0.7;
 }
+
+
+/*******************/
+/** END OF SCRIPT **/
+/*******************/
